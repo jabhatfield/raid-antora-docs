@@ -1,6 +1,6 @@
 site:
   title: AI Demo Docs
-  start_page: openai-component::index.adoc
+  start_page: openai-component::openai-intro.adoc
 content:
   sources:
     - url: https://github.com/jon-hatfield-tech-writing/ai-demo-markup.git
