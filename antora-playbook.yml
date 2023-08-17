@@ -1,0 +1,12 @@
+site:
+  title: AI Demo Docs
+  start_page: openai-component::index.adoc
+content:
+  sources:
+    - url: https://github.com/jon-hatfield-tech-writing/ai-demo-markup.git
+      branches: main
+      start_paths: openai, opennlp
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
