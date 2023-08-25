@@ -3,10 +3,10 @@ site:
   start_page: openai-component::openai-intro.adoc
 content:
   sources:
-    - url: https://github.com/jon-hatfield-tech-writing/ai-demo-markup.git
+    - url: ../ai-demo-markup
       branches: main
       start_paths: openai, opennlp
 ui:
   bundle:
-    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    url: ../antora-ui/build/ui-bundle.zip
     snapshot: true
