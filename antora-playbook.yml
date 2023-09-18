@@ -1,11 +1,11 @@
 site:
   title: AI Demo Docs
-  start_page: openai-component::openai-intro.adoc
+  start_page: intro-component::ai-demo-intro.adoc
 content:
   sources:
     - url: ../ai-demo-markup
       branches: main
-      start_paths: openai, opennlp
+      start_paths: intro, opennlp, djl
 ui:
   bundle:
     url: ../antora-ui/build/ui-bundle.zip
