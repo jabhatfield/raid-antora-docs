@@ -1,5 +1,5 @@
 site:
-  title: AI Demo Docs
+  title: RAID
   start_page: intro-component::ai-demo-intro.adoc
 content:
   sources:
