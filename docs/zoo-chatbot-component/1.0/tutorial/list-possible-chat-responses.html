@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>List possible chat responses :: RAID</title>
+    <link rel="canonical" href="https://jon-hatfield-tech-writing.github.io/raid-antora-docs/zoo-chatbot-component/1.0/tutorial/list-possible-chat-responses.html">
+    <link rel="prev" href="chat.html">
+    <link rel="next" href="list-lemmatized-classification-data.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://jon-hatfield-tech-writing.github.io/raid-antora-docs">RAID</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://jon-hatfield-tech-writing.github.io/raid-antora-docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">External libraries</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://opennlp.apache.org/" target="_blank">Apache OpenNLP</a>
+            <a class="navbar-item" href="https://djl.ai/" target="_blank">Deep Java Library</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Dependencies</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://openjdk.org/" target="_blank">Java</a>
+            <a class="navbar-item" href="https://git-scm.com/downloads" target="_blank">Git</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://github.com/jon-hatfield-tech-writing/ai-demo" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="zoo-chatbot-component" data-version="1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../zoo-chatbot-intro.html">Zoo Chatbot</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../zoo-chatbot-intro.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="chat-tutorial.html">Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tokenize.html">Tokenize</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tag-parts-of-speech.html">Tag parts of speech</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lemmatize.html">Lemmatize</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="chat.html">Chat</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="list-possible-chat-responses.html">List possible chat responses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="list-lemmatized-classification-data.html">List lemmatized classification data</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="summary.html">Summary</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../zoo-chatbot-deep-dive.html">Deep dive</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../zoo-chatbot-faq.html">FAQ</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Zoo Chatbot</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../intro-component/1.0/ai-demo-intro.html">Demo Overview</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../intro-component/1.0/ai-demo-intro.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../handwriting-recogniser-component/1.0/handwriting-recogniser-intro.html">Handwriting Recogniser</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../handwriting-recogniser-component/1.0/handwriting-recogniser-intro.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../zoo-chatbot-intro.html">Zoo Chatbot</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../zoo-chatbot-intro.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../intro-component/1.0/ai-demo-intro.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../zoo-chatbot-intro.html">Zoo Chatbot</a></li>
+    <li><a href="chat-tutorial.html">Tutorial</a></li>
+    <li><a href="list-possible-chat-responses.html">List possible chat responses</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">List possible chat responses</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This endpoint returns the set of possible replies that the chatbot can choose from. Each reply has a category, which
+is an identifier to link the reply to its associated <a href="list-lemmatized-classification-data.html" class="xref page">training data</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_request"><a class="anchor" href="#_request"></a>Request</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Send the following request:</p>
+</div>
+<div class="paragraph">
+<p><span class="api-title">GET /zoo-chatbot/possible-chat-responses</span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_response"><a class="anchor" href="#_response"></a>Response</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Data is truncated for readability.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Notice that the values of each category match the categories in the
+<a href="list-lemmatized-classification-data.html" class="xref page">training data</a>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Response</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "possibleResponses": [
+    {
+      "category": "opening-times",
+      "reply": "The opening times are Mon - Fri 9am - 7pm every day, including holidays"
+    },
+    {
+      "category": "animal-list",
+      "reply": "The zoo has 10 giraffes, 3 elephants, 2 lions and 12 penguins"
+    },
+    {
+      "category": "ticket-prices",
+      "reply": "Tickets cost £20 for adults and £10 for children. Refunds are permitted 48 hours or more prior to entry time"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="chat.html">Chat</a></span>
+  <span class="next"><a href="list-lemmatized-classification-data.html">List lemmatized classification data</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

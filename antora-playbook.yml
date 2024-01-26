@@ -1,7 +1,6 @@
 site:
   title: RAID
   start_page: intro-component::ai-demo-intro.adoc
-  url: /antora/index.html
 content:
   sources:
     - url: ../ai-demo-markup
@@ -17,3 +16,5 @@ asciidoc:
 antora:
   extensions:
     - '@antora/lunr-extension'
+output:
+  dir: ./docs

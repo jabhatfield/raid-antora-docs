@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Install and run quickstart :: RAID</title>
+    <link rel="canonical" href="https://jon-hatfield-tech-writing.github.io/raid-antora-docs/intro-component/1.0/install-and-run-quickstart.html">
+    <link rel="prev" href="ai-demo-intro.html">
+    <link rel="next" href="api-spec.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://jon-hatfield-tech-writing.github.io/raid-antora-docs">RAID</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://jon-hatfield-tech-writing.github.io/raid-antora-docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">External libraries</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://opennlp.apache.org/" target="_blank">Apache OpenNLP</a>
+            <a class="navbar-item" href="https://djl.ai/" target="_blank">Deep Java Library</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Dependencies</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://openjdk.org/" target="_blank">Java</a>
+            <a class="navbar-item" href="https://git-scm.com/downloads" target="_blank">Git</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://github.com/jon-hatfield-tech-writing/ai-demo" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="intro-component" data-version="1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="ai-demo-intro.html">Demo Overview</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ai-demo-intro.html">Introduction</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="install-and-run-quickstart.html">Install and run quickstart</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="api-spec.html">API specification</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Demo Overview</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="ai-demo-intro.html">Demo Overview</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="ai-demo-intro.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../handwriting-recogniser-component/1.0/handwriting-recogniser-intro.html">Handwriting Recogniser</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../handwriting-recogniser-component/1.0/handwriting-recogniser-intro.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../zoo-chatbot-component/1.0/zoo-chatbot-intro.html">Zoo Chatbot</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../zoo-chatbot-component/1.0/zoo-chatbot-intro.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="ai-demo-intro.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="ai-demo-intro.html">Demo Overview</a></li>
+    <li><a href="install-and-run-quickstart.html">Install and run quickstart</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Install and run quickstart</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Follow this quickstart to achieve the following operations:</p>
+</div>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><i class="fa fa-check-square-o"></i> Send a chat message to the <a href="../../zoo-chatbot-component/1.0/zoo-chatbot-intro.html" class="xref page">Zoo Chatbot</a> and receive an answer.</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> Send an image of a handwritten number to the <a href="../../handwriting-recogniser-component/1.0/handwriting-recogniser-intro.html" class="xref page">Handwriting Recogniser</a>
+and receive its numerical value.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Java version 17 or higher. <a href="https://openjdk.org" target="_blank" rel="noopener">OpenJDK</a> downloaded via
+<a href="https://sdkman.io" target="_blank" rel="noopener">SDKMAN!</a> is recommended</p>
+</li>
+<li>
+<p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build"><a class="anchor" href="#_build"></a>Build</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Clone the code from <a href="https://github.com/jon-hatfield-tech-writing/ai-demo" target="_blank" rel="noopener">GitHub</a> then use an IDE or the command
+line to continue.</p>
+</div>
+<div class="sect2">
+<h3 id="_build_with_an_ide"><a class="anchor" href="#_build_with_an_ide"></a>Build with an IDE</h3>
+<div class="paragraph">
+<p>Import the code as a Java project. <a href="https://www.jetbrains.com/idea/" target="_blank" rel="noopener">IntelliJ</a> is recommended.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>RAID uses <a href="https://projectlombok.org" target="_blank" rel="noopener">Lombok</a> to reduce boilerplate code. Ensure that the IDE has a Lombok plugin
+and that annotation processing is enabled.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_build_with_the_command_line"><a class="anchor" href="#_build_with_the_command_line"></a>Build with the command line</h3>
+<div class="paragraph">
+<p>Go into the project root folder and build an executable JAR as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ ./gradlew bootJar</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_run"><a class="anchor" href="#_run"></a>Run</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ensure RAID is <a href="#_build">built</a> then run it with an IDE or the command line.</p>
+</div>
+<div class="sect2">
+<h3 id="_run_with_an_ide"><a class="anchor" href="#_run_with_an_ide"></a>Run with an IDE</h3>
+<div class="paragraph">
+<p>Open <code>AIDemoApplication.java</code> and run the <code>main</code> method using the IDE <strong>Play</strong> button.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_run_with_the_command_line"><a class="anchor" href="#_run_with_the_command_line"></a>Run with the command line</h3>
+<div class="paragraph">
+<p>Go into the project root folder and run the executable JAR as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ java -jar build/libs/demo-0.0.1-SNAPSHOT.jar</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_use_the_restful_api"><a class="anchor" href="#_use_the_restful_api"></a>Use the RESTful API</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Access the API on the root context path <code>/</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>http://localhost:8080/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The easiest way to call the API operations is to <a href="api-spec.html" class="xref page">use the Swagger UI</a>. Alternatively, use
+<a href="https://www.postman.com" target="_blank" rel="noopener">Postman</a> or <code>curl</code> and ensure that the <code>Content-Type</code> header is set to <code>application/json</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_send_a_chat_message"><a class="anchor" href="#_send_a_chat_message"></a>Send a chat message</h3>
+<div class="paragraph">
+<p>Send the following chat request:</p>
+</div>
+<div class="listingblock">
+<div class="title">POST /zoo-chatbot/chat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "message": "any giraffes?"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response is as follows:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Data is truncated for readability.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Response</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "category": "animal-list",
+  "reply": "The zoo has 10 giraffes, 3 elephants, 2 lions and 12 penguins",
+  "probabilities": [
+    {
+      "category": "animal-list",
+      "probability": 0.6893424773
+    },
+    {
+      "category": "directions",
+      "probability": 0.0776643807
+    },
+    {
+      "category": "opening-times",
+      "probability": 0.0776643807
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_send_an_image_of_a_handwritten_number"><a class="anchor" href="#_send_an_image_of_a_handwritten_number"></a>Send an image of a handwritten number</h3>
+<div class="paragraph">
+<p>Send the following image recognition request:</p>
+</div>
+<div class="listingblock">
+<div class="title">POST /handwriting-recogniser/classify-handwritten-number</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "fileName": "0.png"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response is as follows:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Data is truncated for readability.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Response</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "handwrittenNumber": "0",
+  "probabilities": [
+    {
+      "handwrittenNumber": "0",
+      "probability": 0.9999525547
+    },
+    {
+      "handwrittenNumber": "2",
+      "probability": 0.0000418071
+    },
+    {
+      "handwrittenNumber": "6",
+      "probability": 0.0000029869
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_learn_more"><a class="anchor" href="#_learn_more"></a>Learn more</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>See the <a href="../../zoo-chatbot-component/1.0/tutorial/chat-tutorial.html" class="xref page">Zoo Chatbot tutorial</a> to learn all the Zoo Chatbot operations.</p>
+</li>
+<li>
+<p>See the <a href="../../handwriting-recogniser-component/1.0/tutorial/handwriting-recogniser-tutorial.html" class="xref page">Handwriting Recogniser tutorial</a> to learn all the
+Handwriting Recogniser operations.</p>
+</li>
+<li>
+<p>See the <a href="api-spec.html" class="xref page">API specification</a> for the full specification.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="ai-demo-intro.html">Introduction</a></span>
+  <span class="next"><a href="api-spec.html">API specification</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

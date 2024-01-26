@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Handwriting Recogniser deep dive :: RAID</title>
+    <link rel="canonical" href="https://jon-hatfield-tech-writing.github.io/raid-antora-docs/handwriting-recogniser-component/1.0/handwriting-recogniser-deep-dive.html">
+    <link rel="prev" href="tutorial/summary.html">
+    <link rel="next" href="handwriting-recogniser-faq.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://jon-hatfield-tech-writing.github.io/raid-antora-docs">RAID</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://jon-hatfield-tech-writing.github.io/raid-antora-docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">External libraries</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://opennlp.apache.org/" target="_blank">Apache OpenNLP</a>
+            <a class="navbar-item" href="https://djl.ai/" target="_blank">Deep Java Library</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Dependencies</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://openjdk.org/" target="_blank">Java</a>
+            <a class="navbar-item" href="https://git-scm.com/downloads" target="_blank">Git</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://github.com/jon-hatfield-tech-writing/ai-demo" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="handwriting-recogniser-component" data-version="1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="handwriting-recogniser-intro.html">Handwriting Recogniser</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="handwriting-recogniser-intro.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="tutorial/handwriting-recogniser-tutorial.html">Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tutorial/classify-handwritten-zero.html">Classify a handwritten zero</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tutorial/classify-handwritten-number.html">Classify a handwritten number</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tutorial/list-example-input-images.html">List example input images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tutorial/summary.html">Summary</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="handwriting-recogniser-deep-dive.html">Deep dive</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="handwriting-recogniser-faq.html">FAQ</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Handwriting Recogniser</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../intro-component/1.0/ai-demo-intro.html">Demo Overview</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../intro-component/1.0/ai-demo-intro.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="handwriting-recogniser-intro.html">Handwriting Recogniser</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="handwriting-recogniser-intro.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../zoo-chatbot-component/1.0/zoo-chatbot-intro.html">Zoo Chatbot</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../zoo-chatbot-component/1.0/zoo-chatbot-intro.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../intro-component/1.0/ai-demo-intro.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="handwriting-recogniser-intro.html">Handwriting Recogniser</a></li>
+    <li><a href="handwriting-recogniser-deep-dive.html">Deep dive</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Handwriting Recogniser deep dive</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This deep dive outlines the main concepts of the Handwriting Recogniser inner workings.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_neural_networks"><a class="anchor" href="#_neural_networks"></a>Neural networks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A neural network is an artificial representation of the human brain. It comprises computational nodes and
+their weighted interconnections, analogous to neurons and synapses. Input data flows though layers of nodes, with node output
+determined by incoming weights plus a mathematical function called an
+<a href="#_rectified_linear_unit_activation_function">activation function</a>.</p>
+</div>
+<div class="paragraph">
+<p>Prior to user input, weights are randomly initialized and iteratively trained on training data, to refine the model,
+until one of the following occurs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The training algorithm converges, meaning it reaches a stable value.</p>
+</li>
+<li>
+<p>The specified number of iterations is reached.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_multilayer_perceptron"><a class="anchor" href="#_multilayer_perceptron"></a>Multilayer perceptron</h2>
+<div class="sectionbody">
+<div id="mlp-diagram" class="imageblock">
+<div class="content">
+<img src="_images/mlp.png" alt="MLP">
+</div>
+<div class="title">Figure 1. Multilayer perceptron</div>
+</div>
+<div class="paragraph">
+<p>Handwriting Recogniser implements a <strong>multilayer perceptron</strong> (<strong>MLP</strong>) neural network trained on the
+<a href="https://en.wikipedia.org/wiki/MNIST_database" target="_blank" rel="noopener">MNIST database</a> of handwritten numbers. An MLP consists of multiple layers,
+as illustrated in <a href="#mlp-diagram">Figure 1</a>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Input layer</strong>: contains the input data</p>
+</li>
+<li>
+<p><strong>Hidden layer</strong>: calculates output to the next layer</p>
+</li>
+<li>
+<p><strong>Output layer</strong>: calculates the result</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The hidden layer is the core of the network. It contains the functions that activate nodes and recalculate weights.
+The network can have multiple hidden layers, depending on the complexity of its functionality.</p>
+</div>
+<div class="paragraph">
+<p>The MLP has the following characteristics, which are explained in following sections:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_feedforward_processing">Feedforward processing</a></p>
+</li>
+<li>
+<p><a href="#_backpropagation">Backpropagation</a></p>
+</li>
+<li>
+<p><a href="#_gradient_descent">Gradient descent</a></p>
+</li>
+<li>
+<p><a href="#_rectified_linear_unit_activation_function">Rectified Linear Unit activation function</a></p>
+</li>
+<li>
+<p><a href="#_softmax_activation_function">Softmax activation function</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_feedforward_processing"><a class="anchor" href="#_feedforward_processing"></a>Feedforward processing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In a feedforward neural network, information flows in one direction, from input towards output. This design suits
+classification tasks, such as image recognition, because it allows an independent variable (the input to classify) to
+map to specified dependent variables (output classification options).</p>
+</div>
+<div class="paragraph">
+<p>The alternative to feedforward is recurrent neural networks, whereby information can flow in loops. This allows memory
+within the network, making these networks suited for processing sequential data that relies on prior input, such as
+speech recognition data.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_backpropagation"><a class="anchor" href="#_backpropagation"></a>Backpropagation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The neural network uses its state, in terms of weights, to predict an outcome. During training, the discrepancy between
+predicted and actual outcome is calculated by a <em>loss function</em>, which is a mathematical representation of error,
+and this error must be minimised in order to optimise the network. Backpropagation is the calculation of the rate of change,
+or derivative, of the loss function, for each weight. Since a derivative indicates the direction in which a function
+increases, the negative of the derivative is used to indicate the direction of loss function minimisation and therefore
+optimisation.</p>
+</div>
+<div class="paragraph">
+<p>Backpropagation only ascertains how to optimise the network, it does not perform the optimisation itself.
+<a href="#_gradient_descent">Gradient descent</a> performs the optimisation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_gradient_descent"><a class="anchor" href="#_gradient_descent"></a>Gradient descent</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Gradient descent is an algorithm that descends the gradient defined by <a href="#_backpropagation">backpropagation</a>. It amends
+the network weights iteratively until the loss function is minimised. This is analogous to descending a mountain peak,
+in steps, in the direction of the steepest slope, until the lowest valley is reached. See <a href="#gradient-descent-diagram">Figure 2</a>
+for a visualisation of the process.</p>
+</div>
+<div id="gradient-descent-diagram" class="imageblock">
+<div class="content">
+<img src="_images/gradient-descent.png" alt="Gradient descent">
+</div>
+<div class="title">Figure 2. Gradient descent</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rectified_linear_unit_activation_function"><a class="anchor" href="#_rectified_linear_unit_activation_function"></a>Rectified Linear Unit activation function</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An activation function calculates node output based on the input. If the output exceeds a defined threshold, the node
+is activated and passes data onwards through its outward connections. Activation functions are typically non-linear
+in order to introduce variance and therefore learn; a linear function would simply propagate input. Handwriting Recogniser
+uses the <strong>Rectified Linear Unit</strong> (<strong>ReLU</strong>) activation function, which returns output as equal to the input when the value
+is positive, otherwise it returns zero (see <a href="#relu-activation-diagram">Figure 3</a>).</p>
+</div>
+<div id="relu-activation-diagram" class="imageblock">
+<div class="content">
+<img src="_images/relu.png" alt="ReLU">
+</div>
+<div class="title">Figure 3. ReLU activation function</div>
+</div>
+<div class="paragraph">
+<p>The activation function is also involved in the <a href="#_backpropagation">backpropagation</a> derivative calculations.
+Notice that the derivative of ReLU is 0 for negative values and 1 for positive values, as illustrated in
+<a href="#relu-derivative-diagram">Figure 4</a>.</p>
+</div>
+<div id="relu-derivative-diagram" class="imageblock">
+<div class="content">
+<img src="_images/relu-derivative.png" alt="ReLU derivative">
+</div>
+<div class="title">Figure 4. ReLU derivative</div>
+</div>
+<div class="paragraph">
+<p>The derivative of the activation function is important for preventing the vanishing gradient problem, whereby the
+backpropagation derivatives prematurely approach 0 during <a href="#_gradient_descent">gradient descent</a>, causing the network
+to learn slowly or not at all. Vanishing gradients occur when implementing an activation function with derivatives that
+are close to 0 for many input values, such as the sigmoid function (see <a href="#sigmoid-derivative-diagram">Figure 5</a>).</p>
+</div>
+<div id="sigmoid-derivative-diagram" class="imageblock">
+<div class="content">
+<img src="_images/sigmoid-derivative.png" alt="Sigmoid derivative">
+</div>
+<div class="title">Figure 5. Sigmoid derivative</div>
+</div>
+<div class="paragraph">
+<p>Compare the ReLU derivatives in <a href="#relu-derivative-diagram">Figure 4</a> with the sigmoid derivatives in <a href="#sigmoid-derivative-diagram">Figure 5</a>.
+Notice how ReLU has a wider selection of weights that result in significant derivatives (close to 1). ReLU is therefore
+more likely to make progress during gradient descent and reach an optimal solution.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_softmax_activation_function"><a class="anchor" href="#_softmax_activation_function"></a>Softmax activation function</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The softmax function is used in the final layer of the network, instead of the
+<a href="#_rectified_linear_unit_activation_function">ReLU activation function</a>, to output the result. It normalises the output values to
+probabilities of correctness between 0 and 1. These probabilities sum up to 1 and can therefore be regarded as percentages.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_learn_more"><a class="anchor" href="#_learn_more"></a>Learn more</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>See the <a href="tutorial/handwriting-recogniser-tutorial.html" class="xref page">Handwriting Recogniser tutorial</a> for a practical guide of operations.</p>
+</li>
+<li>
+<p>See the <a href="../../intro-component/1.0/api-spec.html" class="xref page">API specification</a> for the full specification.</p>
+</li>
+</ul>
+</div>
+<br>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScIxAyBeGBwbXKVOrEnTPNrAJJ5uLqP9Y2h74wBK5T7z11wrw/viewform?embedded=true" width="640" height="480" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="tutorial/summary.html">Summary</a></span>
+  <span class="next"><a href="handwriting-recogniser-faq.html">FAQ</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
