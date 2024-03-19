@@ -1,2 +1,2 @@
 Antora generated site for
-[RESTful AI Demo (RAID)](https://jon-hatfield-tech-writing.github.io/raid-antora-docs)
+[RESTful AI Demo (RAID)](https://jabhatfield.github.io/raid-antora-docs)
