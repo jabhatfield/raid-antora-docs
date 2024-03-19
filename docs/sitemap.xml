@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <sitemap>
-<loc>https://jon-hatfield-tech-writing.github.io/raid-antora-docs/sitemap-handwriting-recogniser-component.xml</loc>
+<loc>https://jabhatfield.github.io/raid-antora-docs/sitemap-handwriting-recogniser-component.xml</loc>
 </sitemap>
 <sitemap>
-<loc>https://jon-hatfield-tech-writing.github.io/raid-antora-docs/sitemap-intro-component.xml</loc>
+<loc>https://jabhatfield.github.io/raid-antora-docs/sitemap-intro-component.xml</loc>
 </sitemap>
 <sitemap>
-<loc>https://jon-hatfield-tech-writing.github.io/raid-antora-docs/sitemap-zoo-chatbot-component.xml</loc>
+<loc>https://jabhatfield.github.io/raid-antora-docs/sitemap-zoo-chatbot-component.xml</loc>
 </sitemap>
 </sitemapindex>
